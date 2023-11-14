@@ -32,7 +32,7 @@ const login = async (req, res) => {
       })
     }
   } catch (err) {
-    res.status(400).json({message: 'Incorrect login or password'})
+    res.status(500).json({message: 'Something went wrong'})
   }
 }
 
@@ -80,7 +80,7 @@ const register = async (req, res) => {
       })
     }
   } catch (err) {
-    res.status(400).json({message: 'Failed to create user'})
+    res.status(500).json({message: 'Something went wrong'})
   }
 }
 
