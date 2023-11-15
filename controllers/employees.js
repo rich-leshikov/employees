@@ -65,7 +65,7 @@ const add = async (req, res) => {
 
 /**
  *
- * @route DELETE /api/employees/remove/:id
+ * @route POST /api/employees/remove/:id
  * @desc Deleting an employee
  * @access Private
  */

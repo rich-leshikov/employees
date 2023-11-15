@@ -10,7 +10,7 @@ router.get('/:id', auth, employee)
 // /api/employees/add
 router.post('/add', auth, add)
 // /api/employees/remove/:id
-router.delete('/remove/:id', auth, remove)
+router.post('/remove/:id', auth, remove)
 // /api/employees/edit/:id
 router.put('/edit/:id', auth, edit)
 
