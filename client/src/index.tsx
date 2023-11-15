@@ -5,6 +5,8 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import {store} from './app/store'
 import {Paths} from './paths'
 import './index.css'
+import {Login} from './pages/login'
+import {Register} from './pages/register'
 
 const router = createBrowserRouter([
   {
@@ -12,10 +14,10 @@ const router = createBrowserRouter([
     element: <h2>Home page</h2>
   }, {
     path: Paths.login,
-    element: <h2>Login</h2>
+    element: <Login/>
   }, {
     path: Paths.register,
-    element: <h2>Register</h2>
+    element: <Register/>
   }
 ])
 const container = document.getElementById('root')!
