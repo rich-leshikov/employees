@@ -43,7 +43,28 @@ const add = async (req, res) => {
   }
 }
 
+/**
+ *
+ * @route DELETE /api/employees/remove/:id
+ * @desc Deleting an employee
+ * @access Private
+ */
+const remove = async (req, res) => {
+  const {id} = req.body
+
+  try {
+    await prisma.employee.delete({
+      where: {id}
+    })
+
+    res.status(204).json('OK')
+  } catch (err) {
+    res.status(500).json({message: 'Failed to delete an employee'})
+  }
+}
+
 module.exports = {
   all,
-  add
+  add,
+  remove
 }
