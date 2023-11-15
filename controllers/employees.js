@@ -18,6 +18,26 @@ const all = async (req, res) => {
 
 /**
  *
+ * @route GET /api/employees/:id
+ * @desc Getting an employee
+ * @access Private
+ */
+const employee = async (req, res) => {
+  const {id} = req.body
+
+  try {
+    const employee = await prisma.employee.findUnique({
+      where: {id}
+    })
+
+    res.status(200).json(employee)
+  } catch (err) {
+    res.status(500).json({message: 'Can not get an employee'})
+  }
+}
+
+/**
+ *
  * @route POST /api/employees/add
  * @desc Adding an employee
  * @access Private
@@ -79,7 +99,7 @@ const edit = async (req, res) => {
       data
     })
 
-    res.status(200).json('OK')
+    res.status(204).json('OK')
   } catch (err) {
     res.status(500).json({message: 'Something went wrong'})
   }
@@ -87,6 +107,7 @@ const edit = async (req, res) => {
 
 module.exports = {
   all,
+  employee,
   add,
   remove,
   edit
