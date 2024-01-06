@@ -4,8 +4,8 @@ import {Card, Form, Row, Space, Typography} from 'antd'
 import {CustomInput} from '../../components/custom-input'
 import {PasswordInput} from '../../components/password-input'
 import {CustomButton} from '../../components/custom-button'
-import {Link} from 'react-router-dom';
-import {Paths} from '../../paths';
+import {Link} from 'react-router-dom'
+import {Paths} from '../../paths'
 
 export const Register = () => {
   return (
