@@ -8,6 +8,7 @@ import {CustomButton} from '../../components/custom-button'
 import {Paths} from '../../paths'
 import {useLoginMutation, UserData} from '../../app/services/auth'
 import {isErrorMessage} from '../../utils/is-error-message'
+import {ErrorMessage} from '../../components/error-message'
 
 export const Login = () => {
   const [loginUser, loginUserResult] = useLoginMutation()
@@ -40,6 +41,7 @@ export const Login = () => {
             <Typography.Text>
               Have no profile? <Link to={Paths.register}>Sign Up</Link>
             </Typography.Text>
+            <ErrorMessage message={error}/>
           </Space>
         </Card>
       </Row>
