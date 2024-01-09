@@ -1,3 +1,5 @@
+import {useEffect} from 'react'
+import {useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {Table} from 'antd'
 import type {ColumnsType} from 'antd/es/table'
@@ -7,6 +9,7 @@ import {Paths} from '../../paths'
 import {useGetAllEmployeesQuery} from '../../app/services/emloyees'
 import {Layout} from '../../components/layout'
 import {CustomButton} from '../../components/custom-button'
+import {selectUser} from '../../features/auth/authSlice'
 
 const columns: ColumnsType<Employee> = [{
   title: 'Name',
@@ -24,7 +27,14 @@ const columns: ColumnsType<Employee> = [{
 
 export const Employees = () => {
   const navigate = useNavigate()
+  const user = useSelector(selectUser)
   const {data, isLoading} = useGetAllEmployeesQuery()
+
+  useEffect(() => {
+    if (!user) {
+      navigate('/login')
+    }
+  }, [user])
 
   return (
     <Layout>
