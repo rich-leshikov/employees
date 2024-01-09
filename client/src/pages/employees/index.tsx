@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom'
 import {Table} from 'antd'
-import {ColumnsType} from 'antd/es/table'
+import type {ColumnsType} from 'antd/es/table'
 import {PlusCircleOutlined} from '@ant-design/icons'
 import {Employee} from '@prisma/client'
 import {Paths} from '../../paths'
@@ -18,8 +18,8 @@ const columns: ColumnsType<Employee> = [{
   key: 'age'
 }, {
   title: 'Address',
-  dataIndex: 'Address',
-  key: 'Address'
+  dataIndex: 'address',
+  key: 'address'
 }]
 
 export const Employees = () => {
