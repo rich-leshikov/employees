@@ -40,6 +40,7 @@ export const Employees = () => {
   const {data, isLoading} = useGetAllEmployeesQuery()
 
   const onNavigateToAddEmployee = () => navigate(Paths.employeeAdd)
+  const onNavigateToEmployee = (record: Record) => navigate(`${Paths.employee}/${record.id}`)
 
   useEffect(() => {
     if (!user) {
@@ -49,7 +50,7 @@ export const Employees = () => {
 
   return (
     <Layout>
-      <CustomButton type={'primary'} onClick={() => null} icon={<PlusCircleOutlined/>}>
+      <CustomButton type={'primary'} onClick={onNavigateToAddEmployee} icon={<PlusCircleOutlined/>}>
         Add employee
       </CustomButton>
       <Table
@@ -60,7 +61,7 @@ export const Employees = () => {
         rowKey={record => record.id}
         onRow={record => {
           return {
-            onClick: () => navigate(`${Paths.employee}/${record.id}`)
+            onClick: () => onNavigateToEmployee(record)
           }
         }}
       />
