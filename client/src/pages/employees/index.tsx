@@ -11,6 +11,15 @@ import {Layout} from '../../components/layout'
 import {CustomButton} from '../../components/custom-button'
 import {selectUser} from '../../features/auth/authSlice'
 
+type Record = {
+  id: string,
+  firstName: string,
+  lastName: string,
+  age: string,
+  address: string,
+  userId: string
+}
+
 const columns: ColumnsType<Employee> = [{
   title: 'Name',
   dataIndex: 'firstName',
@@ -30,9 +39,11 @@ export const Employees = () => {
   const user = useSelector(selectUser)
   const {data, isLoading} = useGetAllEmployeesQuery()
 
+  const onNavigateToAddEmployee = () => navigate(Paths.employeeAdd)
+
   useEffect(() => {
     if (!user) {
-      navigate('/login')
+      navigate(Paths.login)
     }
   }, [user])
 
