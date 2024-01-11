@@ -23,7 +23,7 @@ const all = async (req, res) => {
  * @access Private
  */
 const employee = async (req, res) => {
-  const {id} = req.body
+  const {id} = req.params
 
   try {
     const employee = await prisma.employee.findUnique({
